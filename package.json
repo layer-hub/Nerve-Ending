@@ -1,0 +1,28 @@
+{
+  "name": "tinyfig",
+  "version": "0.0.1",
+  "description": "A tiny utility for composing DOM elements in modern frameworks.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/layer-hub/tinyfig.git"
+  },
+  "keywords": [
+    "dom",
+    "declarative",
+    "functional",
+    "cleanup"
+  ],
+  "author": "Qingo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/layer-hub/tinyfig/issues"
+  },
+  "homepage": "https://github.com/layer-hub/tinyfig#readme"
+}
