@@ -1,6 +1,6 @@
-# tinyfig
+# leafdom
 
-`tinyfig` is a lightweight JavaScript micro-library that provides a set of functions for creating and manipulating DOM elements declaratively. It is particularly suitable for building cross-framework UI components and feature enhancement libraries outside the business development of modern web frameworks (such as React, Vue, Svelte, and Alpine), which can significantly improve code readability and maintainability.
+`leafdom` is a lightweight JavaScript micro-library that provides a set of functions for creating and manipulating DOM elements declaratively. It is particularly suitable for building cross-framework UI components and feature enhancement libraries outside the business development of modern web frameworks (such as React, Vue, Svelte, and Alpine), which can significantly improve code readability and maintainability.
 
 ## Features
 
@@ -14,12 +14,12 @@
 ## Installation
 
 ```bash
-npm install tinyfig
+npm install leafdom
 ```
 
-## Why tinyfig?
+## Why leafdom?
 
-Traditional DOM manipulation can be verbose and hard to read. tinyfig transforms this:
+Traditional DOM manipulation can be verbose and hard to read. leafdom transforms this:
 
 ```javascript
 const main = document.createElement('main');
@@ -43,7 +43,7 @@ const { element } = main({ class: 'container' })(
 
 ## Core Concepts
 
-tinyfig introduces a fluent interface for DOM manipulation that follows a natural mental model:
+leafdom introduces a fluent interface for DOM manipulation that follows a natural mental model:
 1. Select the element type
 2. Define its properties
 3. Add its children
@@ -52,13 +52,13 @@ tinyfig introduces a fluent interface for DOM manipulation that follows a natura
 ## Usage
 
 ```javascript
-import { main, h1, button, span } from 'tinyfig';
+import { main, h1, button, span } from 'leafdom';
 
 // Create a simple component
 const { element, cleanup } = main({ class: "app" })(
   h1({ class: "title" })(
     span("Welcome to "),
-    span({ class: "highlight" })("tinyfig")
+    span({ class: "highlight" })("leafdom")
   ),
   button({ 
     onclick: () => alert('Hello!'),
@@ -83,4 +83,4 @@ document.body.appendChild(element);
 
 ## License
 
-MIT © tinyfig
+MIT © leafdom
