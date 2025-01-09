@@ -16,7 +16,7 @@ const createElement = (tag) => {
             children.forEach(child => {
                 if (typeof child === 'string') {
                     element.appendChild(document.createTextNode(child))
-                } else if (child instanceof Node) {
+                } else if (child.hasOwnProperty('element') && child.element instanceof Node) {
                     const { element, cleanup } = child
                     cleanups.push(cleanup)
                     element.appendChild(element)
