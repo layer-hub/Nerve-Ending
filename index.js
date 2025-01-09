@@ -1,38 +1,33 @@
 const createElement = (tag) => {
     return (props = {}) => {
         return (...children) => {
+            const handlers = []
+            const cleanups = []
             const element = document.createElement(tag)
-
-            // 处理属性
             Object.entries(props).forEach(([key, value]) => {
-                if (key.startsWith('on')) {
-                    // 事件监听器
-                    element.addEventListener(key.toLowerCase().slice(2), value)
-                } else {
-                    // 普通属性
+                if (key.startsWith('on')) { // 事件监听器
+                    const event = key.toLowerCase().slice(2)
+                    handlers.push([event, value])
+                    element.addEventListener(event, value)
+                } else { // 普通属性
                     element.setAttribute(key, value)
                 }
             })
-
-            // 处理子元素
             children.forEach(child => {
                 if (typeof child === 'string') {
                     element.appendChild(document.createTextNode(child))
                 } else if (child instanceof Node) {
-                    element.appendChild(child)
-                }
+                    const { element, cleanup } = child
+                    cleanups.push(cleanup)
+                    element.appendChild(element)
+                } else { }
             })
 
-            // 返回清理函数
             const cleanup = () => {
-                // 移除所有事件监听器
-                Object.entries(props).forEach(([key, value]) => {
-                    if (key.startsWith('on')) {
-                        element.removeEventListener(key.toLowerCase().slice(2), value)
-                    }
+                handlers.forEach(([event, value]) => {
+                    element.removeEventListener(event, value)
                 })
-                // 移除元素
-                element.remove()
+                cleanups.forEach(clean => clean())
             }
 
             return {
