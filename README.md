@@ -1,6 +1,6 @@
-# leafdom
+# Nerve Ending
 
-`leafdom` is a lightweight JavaScript micro-library that provides a set of functions for creating and manipulating DOM elements declaratively. It is particularly suitable for building cross-framework UI components and feature enhancement libraries outside the business development of modern web frameworks (such as React, Vue, Svelte, and Alpine), which can significantly improve code readability and maintainability.
+`Nerve Ending` is a lightweight JavaScript micro-library that provides a set of functions for creating and manipulating DOM elements declaratively. It is particularly suitable for building cross-framework UI components and feature enhancement libraries outside the business development of modern web frameworks (such as React, Vue, Svelte, and Alpine), which can significantly improve code readability and maintainability.
 
 ## Features
 
@@ -14,12 +14,12 @@
 ## Installation
 
 ```bash
-npm install leafdom
+npm install nerve-ending
 ```
 
-## Why leafdom?
+## Why Nerve Ending?
 
-Traditional DOM manipulation can be verbose and hard to read. leafdom transforms this:
+Traditional DOM manipulation can be verbose and hard to read. Nerve Ending transforms this:
 
 ```javascript
 const main = document.createElement('main');
@@ -43,7 +43,7 @@ const { element } = main({ class: 'container' })(
 
 ## Core Concepts
 
-leafdom introduces a fluent interface for DOM manipulation that follows a natural mental model:
+Nerve Ending introduces a fluent interface for DOM manipulation that follows a natural mental model:
 1. Select the element type
 2. Define its properties
 3. Add its children
@@ -52,13 +52,13 @@ leafdom introduces a fluent interface for DOM manipulation that follows a natura
 ## Usage
 
 ```javascript
-import { main, h1, button, span } from 'leafdom';
+import { main, h1, button, span } from 'Nerve Ending';
 
 // Create a simple component
 const { element, cleanup } = main({ class: "app" })(
   h1({ class: "title" })(
     span("Welcome to "),
-    span({ class: "highlight" })("leafdom")
+    span({ class: "highlight" })("Nerve Ending")
   ),
   button({ 
     onclick: () => alert('Hello!'),
@@ -83,4 +83,4 @@ document.body.appendChild(element);
 
 ## License
 
-MIT © leafdom
+MIT © Layerhub

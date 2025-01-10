@@ -17,7 +17,7 @@ const createElement = (tag) => {
                 if (typeof child === 'string') {
                     element.appendChild(document.createTextNode(child))
                 } else if (child.hasOwnProperty('element') && child.element instanceof Node) {
-                    const { element, cleanup } = child
+                    const { element, cleanup, refs, ...methods } = child
                     cleanups.push(cleanup)
                     element.appendChild(element)
                 } else { }
@@ -32,7 +32,9 @@ const createElement = (tag) => {
 
             return {
                 element,
-                cleanup
+                cleanup,
+                refs: {},
+
             }
         }
     }
