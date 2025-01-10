@@ -73,6 +73,15 @@ document.body.appendChild(element);
 // cleanup();
 ```
 
+```javascript
+const Button = (props)=>
+  button({ 
+    onclick: () => alert('Hello!'),
+    class: props.class
+  })(children as string)
+)
+```
+
 ## Key Benefits
 
 1. **Declarative Syntax**: Write DOM structures that mirror their visual hierarchy
