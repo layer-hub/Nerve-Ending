@@ -66,6 +66,21 @@ const { element, cleanup } = main({ class: "app" })(
   })("Say Hello")
 );
 
+const { element, cleanup } = 
+main(
+  { class: "app" },
+  h1(
+    { class: "title" },
+    span("Welcome to "),
+    span({ class: "highlight" })("Nerve Ending")
+  ),
+  button({ 
+    onclick: () => alert('Hello!'),
+    class: "greeting-btn"
+  })("Say Hello")
+);
+
+
 // Add to DOM
 document.body.appendChild(element);
 
@@ -74,8 +89,8 @@ document.body.appendChild(element);
 ```
 
 ```javascript
-const Button = (props)=>
-  button({ 
+const Button = ({children, ...props})=>
+  button({
     onclick: () => alert('Hello!'),
     class: props.class
   })(children as string)

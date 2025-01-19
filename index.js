@@ -29,12 +29,10 @@ const createElement = (tag) => {
                 })
                 cleanups.forEach(clean => clean())
             }
-
             return {
                 element,
                 cleanup,
                 refs: {},
-
             }
         }
     }
